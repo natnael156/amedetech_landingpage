@@ -52,7 +52,7 @@ A modern, high-performance landing page built with Next.js 14, featuring a stunn
 
 ## 🚀 Tech Stack
 
-- **Framework**: Next.js 14.2+ (App Router)
+- **Framework**: Next.js 16,0
 - **Language**: TypeScript 5+
 - **Styling**: TailwindCSS 3+
 - **Animations**: Framer Motion 11+

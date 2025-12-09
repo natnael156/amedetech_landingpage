@@ -81,26 +81,20 @@ export function AboutSection({ title, subtitle, paragraphs, stats, whyChooseUs }
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <AnimationWrapper animation="slideUp">
-          <div className="text-center mb-20">
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 backdrop-blur-sm mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <span className="text-sm text-cyan-300 font-medium">Who We Are</span>
-            </motion.div>
-
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
-                {title}
-              </span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {subtitle}
-            </p>
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 backdrop-blur-sm mb-6">
+            <span className="text-sm text-cyan-300 font-medium">Who We Are</span>
           </div>
-        </AnimationWrapper>
+
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+              {title}
+            </span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            {subtitle}
+          </p>
+        </div>
 
         {/* Main Content - Carousel Style like Testimonials */}
         <div className="max-w-5xl mx-auto mb-16">
@@ -214,24 +208,14 @@ export function AboutSection({ title, subtitle, paragraphs, stats, whyChooseUs }
 
         {/* Stats Section */}
         <div className="max-w-5xl mx-auto mb-16">
-          <AnimationWrapper animation="slideUp" delay={0.4}>
-            {/* Stats - Clean Floating Design */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="group relative text-center"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    delay: index * 0.15, 
-                    type: 'spring',
-                    stiffness: 200,
-                    damping: 15
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                >
+          {/* Stats - Clean Floating Design */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="group relative text-center"
+                whileHover={{ y: -10 }}
+              >
                   {/* Glow Effect Behind Number */}
                   <motion.div 
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-20 blur-3xl transition duration-500"
@@ -247,13 +231,7 @@ export function AboutSection({ title, subtitle, paragraphs, stats, whyChooseUs }
                   </motion.div>
                   
                   {/* Underline */}
-                  <motion.div 
-                    className="w-12 h-0.5 mx-auto mb-2 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-full"
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ delay: index * 0.15 + 0.3, duration: 0.5 }}
-                    viewport={{ once: true }}
-                  />
+                  <div className="w-12 h-0.5 mx-auto mb-2 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-full" />
                   
                   {/* Label */}
                   <div className="text-base md:text-lg text-gray-400 font-medium group-hover:text-cyan-300 transition-colors">
@@ -262,27 +240,24 @@ export function AboutSection({ title, subtitle, paragraphs, stats, whyChooseUs }
                 </motion.div>
               ))}
             </div>
-          </AnimationWrapper>
         </div>
 
         {/* Why Choose Us Section */}
         <div className="mt-24 max-w-7xl mx-auto">
-          <AnimationWrapper animation="slideUp">
-            <div className="text-center mb-16">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
-                  Why Choose Amede Tech
-                </span>
-              </h3>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                We combine technical excellence with a client-first approach to deliver exceptional results
-              </p>
-            </div>
-          </AnimationWrapper>
+          <div className="text-center mb-16">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+                Why Choose Amede Tech
+              </span>
+            </h3>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              We combine technical excellence with a client-first approach to deliver exceptional results
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyChooseUs.map((item, index) => (
-              <AnimationWrapper key={index} animation="slideUp" delay={index * 0.1}>
+              <div key={index}>
                 <motion.div
                   className="group relative"
                   whileHover={{ y: -8 }}
@@ -314,7 +289,7 @@ export function AboutSection({ title, subtitle, paragraphs, stats, whyChooseUs }
                     </p>
                   </div>
                 </motion.div>
-              </AnimationWrapper>
+              </div>
             ))}
           </div>
         </div>
